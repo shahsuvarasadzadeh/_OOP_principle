@@ -1,0 +1,21 @@
+
+* Abstrakt class ilə bağlı vacib qaydalar:
+
+1. Abstrakt classın new ilə birbaşa obyekti yaradıla bilməz;
+2. Abstrakt classda istənilən sayda (və ya heç bir) abstrakt və yaxud abstrakt olmayan
+metod təyin edilə bilər;
+3. Abstrakt classlar private və ya final ola bilməz (burada söhbət top-level classlardan
+gedir);
+4. Abstrakt class başqa bir abstrakt classı extends edirsə, onun bütün abstrakt
+metodlarını öz şəxsi abstrakt metodları kimi varis alır;
+5. Abstrakt classı extends edən birinci konkret subclass həmin abstrakt classın bütün
+abstrakt metodlarını override etməlidir.
+
+
+** Abstrakt metod ilə bağlı vacib qaydalar:
+
+1. Abstrakt metodlar ancaq abstrakt classda təyin edilə bilər;
+2. Abstrakt metodlar private, final və yaxud static elan edilə bilməz;
+3. Abstrakt classda elan edilmiş abstrakt metodların gövdəsi olmamalıdır;
+4. Abstrakt metodların subclassda override edilməsi qaydaları adi metodların override
+edilməsi qaydaları ilə eynidir.
