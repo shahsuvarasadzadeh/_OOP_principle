@@ -1,0 +1,51 @@
+
+
+* İnterfeys ilə bağlı bilməli olduğumuz vacib qaydalar aşağıdakılardır:
+
+ 1. İnterfeysin new ilə birbaşa obyekti yaradıla bilməz;
+
+ 2. İnterfeysin daxilində heç bir metod olmaya da bilər, yəni hər hansı sayda metodun
+ olmasını tələb etmir;
+
+ 3. İnterfeys final elan edilə bilməz;
+
+ 4. Bütün top-level interfeyslər access level olaraq ancaq public və default ola bilərlər. Və
+ həmçinin aşkar qeyd olunmamış olsa belə, bütün interfeyslərin abstract olduğu
+ güman/qəbul edilməlidir. Buna görə də interfeysi private, protected və final etsək,
+ kompayl xətası alarıq;
+
+ 5. İnterfeys daxilindəki bütün metodlar (default və static metodlar istisna olmaqla)
+ aşkar qeyd olunmamış olsa belə abstract və public metodlardır. Ona görə də
+ interfeys metodlarını private, protected və final etsək, qeyd etdiyimiz qayda ilə
+ ziddiyyət təşkil etdiyinə görə kompayl xətası alarıq (Java 9-cu versiyadan etibarən
+ artıq interfeysdə private metodlar da elan etmək mümkündür, amma bu OCA SE 8
+ imtahanının mövzusuna daxil deyil).
+
+ Birinci 3 qayda abstrakt class üçün qeyd etdiyimiz qaydalarla eynidir. 4-cü qayda daxili (inner)
+ interfeyslərə aid deyil (daxili interfeyslər OCA imtahanı mövzusuna daxil deyil).
+
+
+** İnterfeys ilə bağlı bu iki qaydanı yadda saxlamaq lazımdır:
+
+ 1. Əgər interfeys başqa bir interfeysi extends edirsə, və yaxud abstrakt class interfeysi
+ implements edirsə, həmin interfeysin bütün abstrakt metodlarını öz abstrakt metodu
+ kimi miras alır.
+
+ 2. İnterfeysi implements edən və ya interfeysi implements etmiş abstrakt classı extends
+ edən birinci konkret class (first concrete class) bütün abstrakt metodları override
+ etməlidir.
+
+ 1-ci bənddəki ilk cümlə sizi çaşdırmasın, əgər interfeys başqa bir interfeysi miras olaraq almaq
+ istəyirsə, bu zaman implements deyil, extends açar sözü istifadə edilməlidir. Abstrakt classın
+ əksinə olaraq interfeys eyni zamanda bir neçə interfeysi extends edə bilər:
+
+ public interface HasTail {
+
+  public int getTailLength();
+ }
+
+ public interface HasWhiskers {
+  public int getNumberOfWhiskers();
+ }
+
+ public interface Seal extends HasTail, HasWhiskers { }
